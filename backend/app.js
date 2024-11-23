@@ -18,7 +18,7 @@ app.use(cors());
 // POST endpoint to add feedback
 app.post('/api/feedback', (req, res) => {
   const { name, feedback, rating } = req.body;
-
+  const value = 0;
   if (!name || !feedback || typeof rating !== 'number') {
     return res.status(400).json({ message: 'Invalid input. All fields are required.' });
   }
@@ -28,6 +28,7 @@ app.post('/api/feedback', (req, res) => {
     name,
     feedback,
     rating,
+    value
   };
 
   try {
@@ -49,6 +50,31 @@ app.post('/api/feedback', (req, res) => {
   }
 });
 
+app.put('/api/feedback/:id/approve', (req, res) => {
+    const { id } = req.params;
+    try {
+      // Read the testimonials from the file
+      let feedbacks = JSON.parse(fs.readFileSync(TESTIMONIAL_FILE, 'utf8'));
+  
+      // Find the testimonial by id
+      const testimonialIndex = feedbacks.findIndex((feedback) => feedback.id === parseInt(id));
+      if (testimonialIndex === -1) {
+        return res.status(404).json({ message: 'Testimonial not found.' });
+      }
+  
+      // Mark the testimonial as approved (changing the 'value' to 1 or any other approved value)
+      feedbacks[testimonialIndex].value = 1;
+  
+      // Save the updated testimonials back to the file
+      fs.writeFileSync(TESTIMONIAL_FILE, JSON.stringify(feedbacks, null, 2));
+      res.status(200).json({ message: 'Testimonial approved successfully.' });
+    } catch (error) {
+      console.error('Error updating approval:', error);
+      res.status(500).json({ message: 'Error updating approval.' });
+    }
+  });
+
+  
 app.delete('/api/feedback/:id', async (req, res) => {
     const { id } = req.params;
   

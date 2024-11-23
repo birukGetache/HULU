@@ -49,11 +49,13 @@ const FeedBack = () => {
       // Handle the response from the backend (optional)
       if (response.status === 200) {
         setSubmitted(true);
+      
       }
     } catch (error) {
       console.error('Error submitting feedback:', error);
     } finally {
       setIsSubmitting(false); // Reset submitting status
+      setIsFormVisible(false);
     }
   };
 
@@ -119,21 +121,7 @@ const FeedBack = () => {
         </div>
       )}
 
-      {/* Show feedback after submission */}
-      {submitted && !isFormVisible && (
-        <div className="feedback-display">
-          <h3>Feedback Submitted</h3>
-          <p>
-            <strong>Name:</strong> {name}
-          </p>
-          <p>
-            <strong>Feedback:</strong> {feedback}
-          </p>
-          <p>
-            <strong>Rating:</strong> {rating} Stars
-          </p>
-        </div>
-      )}
+     
     </div>
   );
 };

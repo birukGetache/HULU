@@ -99,18 +99,21 @@ const TestimonialPage = ({ theme = 'light', language = 'English' }) => {
     <Container>
       <Title>{language === 'English' ? 'What Our Clients Say' : 'ደንበኞቻችን ምን ይላሉ?'}</Title>
       <TestimonialList>
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard key={index} theme={theme}>
-            <Name theme={theme}>{testimonial.name}</Name>
-            <Feedback>{testimonial.feedback}</Feedback>
-            <Rating>
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} filled={i < testimonial.rating}>★</Star>
-              ))}
-            </Rating>
-          </TestimonialCard>
-        ))}
-      </TestimonialList>
+  {testimonials.map((testimonial, index) => (
+    testimonial.value === 1 && (
+      <TestimonialCard key={index} theme={theme}>
+        <Name theme={theme}>{testimonial.name}</Name>
+        <Feedback>{testimonial.feedback}</Feedback>
+        <Rating>
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} filled={i < testimonial.rating}>★</Star>
+          ))}
+        </Rating>
+      </TestimonialCard>
+    )
+  ))}
+</TestimonialList>
+
     </Container>
   );
 };
