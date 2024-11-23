@@ -1,0 +1,97 @@
+{
+    "about": {
+      "about_title": "About Us",
+      "mission_title": "Our Mission",
+      "mission_text": "Our mission is to provide exceptional service and innovative solutions to meet our clients' needs. We are committed to excellence, integrity, and customer satisfaction. Our team of experts works tirelessly to deliver top-notch results and build lasting relationships.",
+      "history_title": "Our History",
+      "history_text": "Founded in 2010, we have grown from a small startup to a leading company in our industry. Over the years, we have expanded our services, embraced new technologies, and built a team of skilled professionals dedicated to achieving our goals.",
+      "see_more": "See More",
+      "see_less": "See Less",
+      "paragraph_text": "At HULU GENERAL COMMISSION, we offer a comprehensive range of services tailored to meet your diverse needs. Whether you’re looking to buy or rent a car, we provide an extensive selection of vehicles to suit any preference and budget. Our expertise extends beyond automobiles; we also specialize in the sale and rental of land, ensuring you find the perfect property for your ventures. In addition to real estate and vehicle services, we are your go-to event organizers, dedicated to making your special occasions seamless and memorable. Moreover, we offer top-notch website design services to help you establish a compelling online presence, blending creativity with functionality. Trust us to deliver exceptional solutions across these varied domains, ensuring quality and satisfaction every step of the way."
+    },
+    "home": {
+      "text": "Commission-based roles teach you that success is not given; it's earned. The harder you work, the greater the reward.",
+      "efficient": "Efficient",
+      "reliable": "Reliable",
+      "easy": "Easy",
+      "efficientDescription": "We made it more efficient.",
+      "reliableDescription": "Dependable solutions you can trust.",
+      "easyDescription": "Quick setup and integration.",
+      "footer": "&copy; Designed By HULU GENERAL COMMISSION"
+    },
+    
+        "services": {
+          "title": "Our Services",
+          "landSellRent": {
+            "title": "Land Sell and Rent",
+            "description": "We build high-quality, responsive websites tailored to your needs."
+          },
+          "socialMediaMarketing": {
+            "title": "Social Media Marketing and Event Organizer",
+            "description": "Create user-friendly mobile applications for both iOS and Android."
+          },
+          "carRentSell": {
+            "title": "Car Rent and Sell",
+            "description": "Efficient and secure database management solutions for your business."
+          },
+          "humanResource": {
+            "title": "Human Resource",
+            "description": "Human resource management with effective practices."
+          },
+          "homeRentalSell": {
+            "title": "Home Rental and Sell",
+            "description": "Comprehensive solutions for home rental and sales."
+          },
+          "softwareDev": {
+            "title": "Software Development and Website Design",
+            "description": "Custom software and website development services."
+          }
+        },
+        "title": "What Our Clients Say",
+  "testimonials": [
+    {
+      "name": "Gemechu Feyisa",
+      "feedback": "Great service and fantastic results. Highly recommended!"
+    },
+    {
+      "name": "Nahom Ayele",
+      "feedback": "Good experience but there is room for improvement. and nice motivation"
+    },
+    {
+      "name": "Natinael Seifu",
+      "feedback": "Average service, expected more based on the reviews."
+    }
+  ]
+      ,
+      "footer": {
+    "companyInfo": "Our Company",
+    "description": "We are a leading company providing high-quality services tailored to meet your needs. Our team is dedicated to delivering excellence and ensuring customer satisfaction.",
+    "quickLink": "Quick Link",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "contactUs": "Contact Us",
+    "email": "hulugeneralcommission@gmail.com",
+    "phone": "+2519-63-95-96-94",
+    "address": "Legehar, Ahmara Bank.",
+    "downloadApp": "Download App",
+    "appDescription": "Our app is used for registration and to view job opportunities according to your preferences.",
+    "goToTelegramBot": "Go to Telegram Bot",
+    "registerOnBot": "Register on Bot",
+    "botDescription": "Our bot provides easy access to our services."
+  },
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "contact": "Contact",
+  "phone": "Phone",
+  "map": "Leghar at Ahmara Bank Head office",
+  "email": "Email",
+  "selectLanguage": "Select a language",
+  "downloadApp": "Download App",
+  "registerOnBot": "Register on Bot"
+}
+      
+  
+  

@@ -1,0 +1,39 @@
+body,html{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden; 
+  background-color:  #d7d7d7;
+
+}
+*{
+  font-family: "Poppins", system-ui;
+  box-sizing: border-box;
+ 
+}
+#root{
+  box-sizing: border-box;
+  background-color:  #d7d7d7;
+}
+.my-dropdown-control {
+  font-size: 15px;/* Adjust width as needed */
+}
+/* Targeting the scrollbar for the entire page */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent; /* Color of the thumb on hover */
+}
+

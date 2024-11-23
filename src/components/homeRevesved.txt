@@ -1,0 +1,387 @@
+import React, { useState, useEffect } from 'react';
+import styled from '@emotion/styled';
+import imageHome from '../assets/home.webp';
+import car from '../assets/car.webp'; 
+import track from '../assets/track.avif'; 
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto; /* Center the header */
+`;
+
+const Title = styled.h1`
+  font-size: 3em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: orange;
+  margin-left: 250px;
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #555;
+`;
+
+const Services = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto; /* Center the Services section */
+`;
+
+const Service = styled.div`
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  flex: 1;
+  margin: 0 10px;
+`;
+
+const ServiceTitle = styled.h2`
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #007bff; /* Blue color for titles */
+`;
+
+const ServiceDescription = styled.p`
+  font-size: 1em;
+  color: #555;
+`;
+
+const Portfolio = styled.div`
+  margin-top: 50px;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto; /* Center the Portfolio section */
+`;
+
+const PortfolioTitle = styled.h2`
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #007bff; /* Blue color for titles */
+`;
+
+const Projects = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+const Project = styled.div`
+  width: 48%;
+  margin-bottom: 20px;
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer; /* Indicate that the image is clickable */
+`;
+
+const ProjectDescription = styled.p`
+  margin-top: 10px;
+  color: #555;
+`;
+
+const Testimonials = styled.div`
+  margin-top: 50px;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto; /* Center the Testimonials section */
+`;
+
+const Testimonial = styled.div`
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+`;
+
+const TestimonialQuote = styled.p`
+  font-style: italic;
+`;
+
+const TestimonialAuthor = styled.p`
+  font-weight: bold;
+  margin-top: 10px;
+`;
+
+const Footer = styled.footer`
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+`;
+
+const Class = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  z-index: 1;
+`;
+
+const Item = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+  background: rgba(0, 0, 0, 0.8); /* Background for full screen view */
+`;
+
+const Img = styled.img`
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Dis = styled.p`
+  color: #3F3F3F;
+  position: absolute;
+  width: 1440px;
+  max-width: 80%;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the element horizontally */
+  transition: transform 0.3s ease; /* Example transition for transform */
+  font-size: 15px;
+  margin: 0;
+`;
+
+const Content = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 50px; 
+  box-sizing: border-box;
+  text-shadow: 0 5px 10px #0004;
+`;
+
+const Main = styled.h5`
+  color: #333;
+  margin-bottom: 0;
+  margin-top: 20px;
+  margin-left: 260px;
+`;
+
+const Slider = styled.h2`
+  font-size: 3em;
+  margin: 0;
+  margin-left: 250px;
+`;
+
+const Tbnail = styled.div`
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+`;
+
+const Contentd = styled.div`
+  width: 150px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 30px;
+`;
+
+const Titlet = styled.p`
+  text-align: center;
+  margin: 0;
+`;
+
+const Imgt = styled.img`
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const HomePage = () => {
+  const [selectedImage, setSelectedImage] = useState(imageHome); // Set default image to "Home"
+
+  // Array of images for rotation
+  const images = [imageHome, car, track];
+
+  useEffect(() => {
+    // Function to rotate images
+    const rotateImages = () => {
+      const currentIndex = images.indexOf(selectedImage);
+      const nextIndex = (currentIndex + 1) % images.length;
+      setSelectedImage(images[nextIndex]);
+    };
+
+    // Set interval for image rotation
+    const intervalId = setInterval(rotateImages, 3000); // 3 seconds
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [selectedImage, images]);
+
+  const handleThumbnailClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  return (
+    <Container>
+      <Header>
+        <Class>
+          <Item isVisible={selectedImage === imageHome}>
+            <Img src={imageHome} />
+            <Content>
+              <Main>HULU</Main>
+              <Slider>Our Service</Slider>
+              <Title>Home</Title>
+              <Dis>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus ad, quasi corporis, totam laboriosam quibusdam dolore distinctio dicta obcaecati, illo reprehenderit modi! Quia minus, corporis natus consequatur quas ea atque laboriosam eveniet autem, sed aperiam numquam quasi pariatur deleniti vitae libero. Voluptas ab esse ullam labore iure voluptatem! Omnis, quia.
+              </Dis>
+            </Content>
+          </Item>
+          <Item isVisible={selectedImage === car}>
+            <Img src={car} />
+            <Content>
+              <Main>HULU</Main>
+              <Slider>Our Service</Slider>
+              <Title>Car</Title>
+              <Dis>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus ad, quasi corporis, totam laboriosam quibusdam dolore distinctio dicta obcaecati, illo reprehenderit modi! Quia minus, corporis natus consequatur quas ea atque laboriosam eveniet autem, sed aperiam numquam quasi pariatur deleniti vitae libero. Voluptas ab esse ullam labore iure voluptatem! Omnis, quia.
+              </Dis>
+            </Content>
+          </Item>
+          <Item isVisible={selectedImage === track}>
+            <Img src={track} />
+            <Content>
+              <Main>HULU</Main>
+              <Slider>Our Service</Slider>
+              <Title>Track</Title>
+              <Dis>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus ad, quasi corporis, totam laboriosam quibusdam dolore distinctio dicta obcaecati, illo reprehenderit modi! Quia minus, corporis natus consequatur quas ea atque laboriosam eveniet autem, sed aperiam numquam quasi pariatur deleniti vitae libero. Voluptas ab esse ullam labore iure voluptatem! Omnis, quia.
+              </Dis>
+            </Content>
+          </Item>
+          <Tbnail>
+            <Contentd onClick={() => handleThumbnailClick(imageHome)}>
+              <Imgt src={imageHome} />
+              <div>
+                <Titlet>Home</Titlet>
+              </div>
+            </Contentd>
+            <Contentd onClick={() => handleThumbnailClick(car)}>
+              <Imgt src={car} />
+              <div>
+                <Titlet>Car</Titlet>
+              </div>
+            </Contentd>
+            <Contentd onClick={() => handleThumbnailClick(track)}>
+              <Imgt src={track} />
+              <div>
+                <Titlet>Track</Titlet>
+              </div>
+            </Contentd>
+          </Tbnail>
+        </Class>
+      </Header>
+
+      <Services>
+        <Service>
+          <ServiceTitle>Web Development</ServiceTitle>
+          <ServiceDescription>
+            Our expert team builds high-quality websites that are both visually
+            appealing and functional.
+          </ServiceDescription>
+        </Service>
+        <Service>
+          <ServiceTitle>Custom Projects</ServiceTitle>
+          <ServiceDescription>
+            We specialize in creating bespoke solutions tailored to your
+            specific requirements.
+          </ServiceDescription>
+        </Service>
+      </Services>
+
+      <Portfolio>
+        <PortfolioTitle>Our Portfolio</PortfolioTitle>
+        <Projects>
+          <Project>
+            <ProjectImage
+              src="https://picsum.photos/id/1015/400/200"
+              alt="Project 1"
+            />
+            <ProjectDescription>
+              This is a description of the first project.
+            </ProjectDescription>
+          </Project>
+          <Project>
+            <ProjectImage
+              src="https://picsum.photos/id/1018/400/200"
+              alt="Project 2"
+            />
+            <ProjectDescription>
+              This is a description of the second project.
+            </ProjectDescription>
+          </Project>
+          <Project>
+            <ProjectImage
+              src="https://picsum.photos/id/1021/400/200"
+              alt="Project 3"
+            />
+            <ProjectDescription>
+              This is a description of the third project.
+            </ProjectDescription>
+          </Project>
+          <Project>
+            <ProjectImage
+              src="https://picsum.photos/id/1024/400/200"
+              alt="Project 4"
+            />
+            <ProjectDescription>
+              This is a description of the fourth project.
+            </ProjectDescription>
+          </Project>
+        </Projects>
+      </Portfolio>
+
+      <Testimonials>
+        <h2>What Our Clients Say</h2>
+        <Testimonial>
+          <TestimonialQuote>
+            "Working with General Commission Company was a pleasure! They were
+            professional, responsive, and delivered exactly what we needed."
+          </TestimonialQuote>
+          <TestimonialAuthor>- John Doe, CEO of Company X</TestimonialAuthor>
+        </Testimonial>
+        <Testimonial>
+          <TestimonialQuote>
+            "Their website development skills are top-notch. We highly recommend
+            them for any web design project."
+          </TestimonialQuote>
+          <TestimonialAuthor>- Jane Smith, Marketing Director of Company Y</TestimonialAuthor>
+        </Testimonial>
+      </Testimonials>
+
+      <Footer>
+        <p>&copy; 2023 General Commission Company. All Rights Reserved.</p>
+      </Footer>
+    </Container>
+  );
+};
+
+export default HomePage;
